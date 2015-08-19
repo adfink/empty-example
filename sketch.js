@@ -1,19 +1,55 @@
+var y = 400;
+var y2 = 0;
+var x = 400;
+var x2 = 0
+
 function setup() {
-  // uncomment this line to make the canvas the full size of the window
-  createCanvas(windowWidth, windowHeight);
-
-  //createCanvas(640,480);
-
-  translate(580, 200);
-  //noStroke();
-  for (var i = 0; i < 20; i ++) {
-    ellipse(0, 30, 20, 80);
-    rotate(PI/10);
-  }
+  createCanvas(720, 400);
+  stroke(255);
+  frameRate(30);
 }
 
 function draw() {
-  // draw stuff here
+  background(0);
+  y = y - 1;
+  if (y < 0) {
+    y = height;
+  }
 
-  ellipse(50, 50, 50, 50)
+  for ( var i = 0; i < 401; i+=25) {
+    line(i, y, 200, 0);
+  }
+
+  y2 = y2 +1;
+  if (y2 > height) {
+    y2 = 0;
+  }
+
+  for (var i = 0; i < 401; i+=25) {
+    line(i, y2, 200, height);  
+  }
+
+  x = x-1;
+  if (x < 0) {
+    x = 400;
+  }
+
+  for ( var i = 0; i < 401; i+=25) {
+    line(0, 200, x, i);
+  }
+
+  x2 = x2 +1
+  if (x2 > 400) {
+    x2 = 0;
+  }
+
+  for (var i = 0; i < 401; i+=25) {
+    line(400, 200, i, x2);
+  }
+  
+for (var i = 0; i < 401; i+=25) {
+    line(400, 200, x2, i);
+  }
+
+
 }
